@@ -64,7 +64,11 @@ timer_config = TimerUnit(
         Description="Таймер для ежедневного выполнения"
     ),
     Timer=TimerConfig(
-        OnCalendar="*-*-* 00:00:00",  # Каждый день в полночь
+        OnCalendar=[
+                "*-*-* 08:00:00",
+                "*-*-* 12:00:00",
+                "*-*-* 19:00:00",
+            ],
         Unit="my-service.service"
     ),
     Install=InstallConfig()
