@@ -24,7 +24,7 @@ poetry add systemdpy
 
 ```python
 from systemdpy import SystemdServiceManager
-from systemdpy.models import ServiceUnit, UnitConfig, ServiceConfig, InstallConfig
+from systemdpy.models import ServiceUnit, UnitConfig, ServiceConfig, InstallConfig, UserType, RestartPolicy, StandardOutput
 
 # Создание конфигурации сервиса
 service_config = ServiceUnit(
@@ -33,8 +33,9 @@ service_config = ServiceUnit(
     ),
     Service=ServiceConfig(
         ExecStart="/usr/bin/python3 /path/to/script.py",
-        User="root",
-        Restart="always"
+        User=UserType.ROOT,
+        Restart=RestartPolicy.NO,
+        StandardOutput=LogOutput.INHERIT
     ),
     Install=InstallConfig()
 )

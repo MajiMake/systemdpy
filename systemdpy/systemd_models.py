@@ -68,7 +68,6 @@ class InstallConfig(BaseModel):
 class UserType(str, Enum):
     ROOT = "root"
     USER = "user"
-    PULSAR = "pulsar"
 
     def __str__(self):
         return self.value
